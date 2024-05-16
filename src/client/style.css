@@ -1,0 +1,272 @@
+@font-face {
+    font-family: "Main Font";
+    src: url(fonts/W95FA.ttf);
+}
+
+@keyframes updown {
+    0% {
+        transform: translateY(10%);
+    }
+
+    50% {
+        transform: translateY(-10%);
+    }
+
+    100% {
+        transform: translateY(10%);
+    }
+}
+
+body {
+    cursor: url('images/w98_magnifying_glass.ico'), auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Main Font";
+}
+
+h1 {
+    text-align: center;
+}
+
+.banner {
+    width: 100%;
+    height: 130px;
+    background-color: rgb(0, 0, 0);
+    border-bottom: 1px solid #192364;
+    /* Adjust border color as needed */
+    /* Add some padding inside the border (optional) */
+}
+
+.navbar {
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-top: 10px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.bopper0 {
+    animation: updown 2s ease infinite;
+    animation-delay: 0s;
+    /* No delay for the first icon */
+}
+
+.bopper1 {
+    animation: updown 2s ease infinite;
+    animation-delay: 0.5s;
+    /* No delay for the first icon */
+}
+
+.bopper2 {
+    animation: updown 2s ease infinite;
+    animation-delay: 1s;
+    /* Delay the second icon by 0.5 seconds */
+}
+
+.bopper3 {
+    animation: updown 2s ease infinite;
+    animation-delay: 1.5s;
+    /* Delay the third icon by 1 second */
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    font-size: larger;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+.navbar button {
+    background-color: transparent;
+    outline: none;
+    text-decoration: none;
+}
+
+.content {
+    padding-top: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    align-items: center;
+    max-width: 1024px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #00000000, #00808094, #00000000);
+    background-size: 100%;
+
+    min-height: 100vh;
+}
+
+.content-bg {
+    background-image: url('stars.gif');
+    background-size: 100%;
+
+    min-height: 100vh;
+}
+
+.item-image {
+    width: 50px;
+    height: 80px;
+}
+
+.form-group {
+    display: flex;
+    /* Apply flexbox properties to form group */
+    justify-content: space-between;
+    /* Align items horizontally */
+    align-items: center;
+    /* Align labels and inputs vertically */
+    gap: 0.5rem;
+}
+
+.franchise-films {
+    display: flex;
+    overflow-x: scroll;
+    margin-bottom: 20px;
+}
+
+.film-row {
+    display: flex;
+    flex-wrap:nowrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.row-image {
+    width: 150px;
+    height: 270px;
+    background-color: #141414;
+    text-align: center;
+}
+
+.btn-primary {
+    border: 1px solid #192364;
+    background-color: #000000;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #030d18;
+    /* Change hover color */
+}
+
+.box table {
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    /* Adjust width as needed */
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    /* Adjust alignment if needed */
+}
+
+th {
+    font-weight: bold;
+}
+
+.box {
+    background: #C0C0C0;
+    border-width: 1px;
+    border-color: #FFFFFF #808080 #808080 #FFFFFF;
+    border-style: solid;
+    padding: 1px;
+}
+
+.box2 {
+    background: #C0C0C0;
+    border-width: 1px;
+    border-color: #FFFFFF #808080 #808080 #FFFFFF;
+    border-style: solid;
+    padding: 1px;
+    place-items: center;
+    /* Center form content horizontally and vertically */
+    width: 300px;
+    /* Adjust width as needed */
+}
+
+
+div.title {
+    height: 18px;
+    width: 100%;
+    background: #000080;
+    color: #FFF;
+}
+
+img.title {
+    float: left;
+}
+
+p.title {
+    margin: 2px 0 0 1px;
+    float: left;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.title button {
+    /*position:absolute;
+    right:3px;
+    top:3px;*/
+    margin: 2px 2px 2px 0;
+    float: right;
+    width: 14px;
+    height: 13.5px;
+    background: #C0C0C0;
+    border-width: 1px;
+    border-color: #FFFFFF #808080 #808080 #FFFFFF;
+    padding: 0;
+    font-size: 9px;
+    font-weight: bold;
+    font-family: Tahoma;
+    text-align: center;
+}
+
+div.body {
+    padding: 13px 12px 12px;
+    height: 100%;
+    width: calc(100% - 26px);
+    display: inline-block;
+}
+
+div.body p {
+    font-family: "MS Sans Serif";
+    font-size: 11px;
+}
+
+div.body button {
+    font-family: "MS Sans Serif";
+    font-size: 11px;
+    outline: 1px solid #000000;
+    background: #C0C0C0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FFFFFF #808080 #808080 #FFFFFF;
+    padding: 4px 10px;
+    margin: 20px auto 3px;
+    display: block;
+    position: relative;
+    bottom: 0px;
+}
