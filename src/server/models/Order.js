@@ -24,7 +24,6 @@ const orderSchema = new mongoose.Schema({
     enum: ['pending', 'shipped', 'returned', 'cancelled'],
     default: 'pending'
   },
-  // ... other order details (date, shipping information)
 });
 
 module.exports = mongoose.model('Order', orderSchema);

@@ -16,9 +16,15 @@ loginForm.addEventListener('submit', async (event) => {
         const data = await response.json();
 
         if (data.success) {
-            sessionStorage.setItem('loggedIn', true);
-            console.log('Login successful!', data.message); 
-            window.location.href = "/profile";
+            if (data.user && (data.user.userType === 'Pending' || data.user.userType === 'Rejected')) {
+                window.location.href = "/reject";
+            } else {
+                window.location.href = "/profile";
+                sessionStorage.setItem('loggedIn', true);
+                sessionStorage.setItem('user', JSON.stringify(data.user));
+                sessionStorage.setItem('cart', JSON.stringify([]));
+                console.log('Login successful!', data.message);
+            }
         } else {
             alert(data.message);
         }

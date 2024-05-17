@@ -1,4 +1,3 @@
-
 const registerButton = document.querySelector('li a[href="/register"]'); // Select the register link
 
 registerButton.addEventListener('click', (event) => {

@@ -1,4 +1,6 @@
 const itemList = document.getElementById('film-row');
+const itemList2 = document.getElementById('film-row2');
+const itemList3 = document.getElementById('film-row3');
 
 fetch('/api/items')
     .then(response => response.json())
@@ -13,7 +15,11 @@ fetch('/api/items')
             link.appendChild(image);
             stock.appendChild(link);
 
-            itemList.appendChild(stock);
+            if (item.type == 'CD') itemList.appendChild(stock);
+            
+            if (item.type == 'DVD') itemList2.appendChild(stock);
+            
+            if (item.type == 'Cassette') itemList3.appendChild(stock);
         });
     })
     .catch(error => {
