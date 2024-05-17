@@ -8,6 +8,7 @@
         </div>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Artist (Movies)</th>
@@ -30,25 +31,30 @@
             <button>X</button>
             <button>?</button>
         </div>
-        <div class="body">
+        <div class="body" id="form-body">
+            <div class="form-group">
+                <label for="item-id">ID:</label>
+                <input type="text" id="item-id" name="id">
+            </div>
+
             <div class="form-group">
                 <label for="item-title">Name:</label>
-                <input type="text" id="item-title" name="name" required>
+                <input type="text" id="item-title" name="name">
             </div>
 
             <div class="form-group">
                 <label for="item-description">Description:</label>
-                <input type="text" id="item-description" name="description" required>
+                <input type="text" id="item-description" name="description">
             </div>
 
             <div class="form-group">
                 <label for="item-artist">Artist:</label>
-                <input type="text" id="item-artist" name="artist" required>
+                <input type="text" id="item-artist" name="artist">
             </div>
 
             <div class="form-group">
                 <label for="item-genre">Genre:</label>
-                <input type="text" id="item-genre" name="genre" required>
+                <input type="text" id="item-genre" name="genre">
             </div>
 
             <div class="form-group">
@@ -62,20 +68,22 @@
 
             <div class="form-group">
                 <label for="item-stock">Stock:</label>
-                <input type="number" id="item-stock" name="stock" required>
+                <input type="number" id="item-stock" name="stock">
             </div>
 
             <div class="form-group">
                 <label for="item-image">Image link:</label>
-                <input type="text" id="item-image" name="image" required>
+                <input type="text" id="item-image" name="image">
             </div>
 
             <div class="form-group">
                 <label for="item-price">Price:</label>
-                <input type="number" id="item-price" name="price" required>
+                <input type="number" id="item-price" name="price">
             </div>
 
-            <button type="submit" class="btn btn-primary">Add Item</button>
+            <button name="button1" type="submit" class="btn btn-primary">Add Item</button>
+            <button name="button2" type="submit" class="btn btn-primary">Update Item</button>
+            <button name="button3" type="submit" class="btn btn-primary">Delete Item</button>
         </div>
     </form>
 </section>

@@ -118,6 +118,24 @@ h1 {
     min-height: 100vh;
 }
 
+.item-content {
+    text-align: left;
+    display: inline-block;
+    position:relative;
+    margin-left: 30px;
+    margin-right: auto;
+    max-width: 600px;
+} 
+
+.item-content h1 {
+    text-align: left;
+}
+
+.item-info {
+    display: flex;
+
+}
+
 .item-image {
     width: 50px;
     height: 80px;
@@ -149,6 +167,13 @@ h1 {
 .row-image {
     width: 150px;
     height: 270px;
+    background-color: #141414;
+    text-align: center;
+}
+
+.full-image {
+    max-height: 500px;
+    max-width: 300px;
     background-color: #141414;
     text-align: center;
 }
@@ -249,6 +274,13 @@ div.body {
     height: 100%;
     width: calc(100% - 26px);
     display: inline-block;
+}
+
+
+div.body2 {
+    padding: 13px 12px 12px;
+    height: 100%;
+    width: auto;
 }
 
 div.body p {
