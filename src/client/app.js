@@ -1,51 +1,25 @@
 fetch('/api/items')
     .then(response => response.json())
     .then(data => {
-        const tbody = document.getElementById('item-col');
-
         data.forEach(item => {
-            const row = document.createElement('tr');
+            var row = $('<tr>');
 
-            const idCell = document.createElement('td');
-            idCell.textContent = item._id;
-            row.appendChild(idCell);
-
-            const titleCell = document.createElement('td');
-            titleCell.textContent = item.title || 'N/A';
-            row.appendChild(titleCell);
-
-            const descriptionCell = document.createElement('td');
-            descriptionCell.textContent = item.description || 'N/A';
-            row.appendChild(descriptionCell);
-
-            const artistCell = document.createElement('td');
-            artistCell.textContent = item.artist || 'N/A';  // Display 'N/A' if artist is missing
-            row.appendChild(artistCell);
-
-            const genreCell = document.createElement('td');
-            genreCell.textContent = item.genre || 'N/A';
-            row.appendChild(genreCell);
-
-            const typeCell = document.createElement('td');
-            typeCell.textContent = item.type || 'N/A';
-            row.appendChild(typeCell);
-
-            const stockCell = document.createElement('td');
-            stockCell.textContent = item.stock || 'N/A';
-            row.appendChild(stockCell);
-
-            const imageCell = document.createElement('td');
-            const image = document.createElement('img');
-            image.classList.add('item-image');
-            image.src = item.image;
-            imageCell.appendChild(image);
-            row.appendChild(imageCell);
-
-            const priceCell = document.createElement('td');
-            priceCell.textContent = `$${item.price.toFixed(2)}`;  // Format price with dollar sign and 2 decimals
-            row.appendChild(priceCell);
-
-            tbody.appendChild(row);
+            // Create and append cells with content
+            row.append([
+              $('<td>').text(item._id),
+              $('<td>').text(item.title || 'N/A'),
+              $('<td>').text(item.description || 'N/A'),
+              $('<td>').text(item.artist || 'N/A'),
+              $('<td>').text(item.genre || 'N/A'),
+              $('<td>').text(item.type || 'N/A'),
+              $('<td>').text(item.stock || 'N/A'),
+              $('<td>')
+                .append($('<img>').addClass('item-image').attr('src', item.image)),
+              $('<td>').text(`$${item.price.toFixed(2)}`)
+            ]);
+          
+            // Append the row to the table body with ID "item-col"
+            $('#item-col').append(row);
         });
     })
     .catch(error => {
@@ -108,11 +82,11 @@ addItemForm.addEventListener('submit', (event) => {
             if (data.success) {
                 // Handle success based on the action (Add, Update, Delete)
                 alert(`Item ${clickedButton.textContent} successfully!`); // Replace with specific messages
-                addItemForm.reset(); // Clear the form after successful actions
-                window.location = window.location
-                alert("govno")
+
             } else {
                 alert(data.message); // Display any error message from the server
+                addItemForm.reset(); // Clear the form after successful actions
+                window.location = window.location
             }
         })
         .catch(error => {

@@ -19,3 +19,9 @@ function isLoggedIn() {
   // This example assumes a "loggedIn" key in session storage
   return !!sessionStorage.getItem('loggedIn');
 }
+
+function redirect() {
+  var query = document.getElementById("query").value;
+  var targetURL = "/search?query=" + query;
+  window.location.href = targetURL;
+}

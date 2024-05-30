@@ -80,8 +80,12 @@ fetch('/api/item/' + itemID)
         info.appendChild(promo)
 
         info.appendChild(document.createElement('br'))
-        info.appendChild(amount)
-        info.appendChild(addButton)
+        user = sessionStorage.getItem('user');
+        console.log(user);
+        if (user) {
+            info.appendChild(amount)
+            info.appendChild(addButton)
+        }
 
         itemList.appendChild(info);
     })

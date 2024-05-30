@@ -16,9 +16,13 @@ loginForm.addEventListener('submit', async (event) => {
         const data = await response.json();
 
         if (data.success) {
-            if (data.user && (data.user.userType === 'Pending' || data.user.userType === 'Rejected')) {
+            if (data.user && (data.user.userType === 'Rejected')) {
                 window.location.href = "/reject";
-            } else {
+            }
+            else if (data.user && (data.user.userType === 'Pending')) {
+                window.location.href = "/pending";
+            }
+            else {
                 window.location.href = "/profile";
                 sessionStorage.setItem('loggedIn', true);
                 sessionStorage.setItem('user', JSON.stringify(data.user));

@@ -1,5 +1,5 @@
 module.exports = [
-    '/control',
     '/restock',
+    '/orders',
   ];
   

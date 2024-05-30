@@ -54,6 +54,11 @@ h1 {
     cursor: pointer;
 }
 
+.logo2 {
+    height: 200px;
+    cursor: pointer;
+}
+
 .bopper0 {
     animation: updown 2s ease infinite;
     animation-delay: 0s;
@@ -116,6 +121,34 @@ h1 {
     background-size: 100%;
 
     min-height: 100vh;
+}
+
+.order-box {
+    background-color: #d1d1d1;
+    margin: 5px 5px 20px 5px;
+    padding-left: 5%;
+}
+
+.order-pos {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order-pos ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 10px 10px 0px 10px; 
+    justify-content: space-between;
+}
+
+.order-pos img{
+    max-height: 50px;
+    width: 30px;
+}
+
+.order-pos button{
+    float: right;
+    transform: translateY(-50px);
 }
 
 .item-content {

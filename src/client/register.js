@@ -6,6 +6,7 @@ registerForm.addEventListener('submit', async (event) => {
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
   const email = document.getElementById('email').value;
+  const userType = "Pending";
 
   // Basic form validation (optional)
   if (!username || !password) {
@@ -17,7 +18,7 @@ registerForm.addEventListener('submit', async (event) => {
     const response = await fetch('/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password, email })
+      body: JSON.stringify({ username, password, email, userType })
     });
 
     const data = await response.json();

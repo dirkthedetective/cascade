@@ -4,6 +4,7 @@ fetch('/api/control')
         const tbody = document.getElementById('item-col');
 
         data.forEach(item => {
+            console.log(item);
             const row = document.createElement('tr');
 
             const idCell = document.createElement('td');
@@ -44,6 +45,7 @@ fetch('/api/control')
                     } else {
                         alert(data.message); // Display any error message from the server
                     }
+                    window.location = window.location
                 } catch (error) {
                     console.error(error);
                     alert('Error rejecting user!');
@@ -71,6 +73,7 @@ fetch('/api/control')
                     } else {
                         alert(data.message); // Display any error message from the server
                     }
+                    window.location = window.location
                 } catch (error) {
                     console.error(error);
                     alert('Error confirming user!');
@@ -87,3 +90,68 @@ fetch('/api/control')
         console.error(error);
         // Handle errors (display an error message to the user)
     });
+
+const addItemForm = document.getElementById('add-item-form');
+
+addItemForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const clickedButton = document.activeElement
+    const id = document.getElementById('item-id').value;
+    const username = document.getElementById('item-username').value;
+    const password = document.getElementById('item-password').value;
+    const email = document.getElementById('item-email').value;
+    const userType = document.getElementById('item-type').value;
+
+    // Extract data from other form fields (category, description, etc.)
+
+    let url = '/api/users';
+    let method = 'POST';
+
+    if (clickedButton.name === "button1") { // Assuming button1 is for Add
+        // Keep URL and method as POST for adding a new item
+    } else if (clickedButton.name === "button2") { // Assuming button2 is for Update
+        if (!id) {
+            alert('Please enter an item ID for update!');
+            return; // Prevent further execution if no ID
+        }
+        url = `/api/users/${id}`; // Add ID to URL for updating
+        method = 'PUT'; // Change method to PUT for update
+    } else if (clickedButton.name === "button3") { // Assuming button3 is for Delete
+        if (!id) {
+            alert('Please enter an item ID for deletion!');
+            return; // Prevent further execution if no ID
+        }
+        url = `/api/users/${id}`; // Add ID to URL for deletion
+        method = 'DELETE'; // Change method to DELETE for deletion
+    } else {
+        console.error('Unexpected button clicked!' + clickedButton.textContent);
+        return; // Handle unexpected button clicks (optional)
+    }
+
+    const itemData = { username, password, email, userType };
+
+    fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(itemData) // Send data as JSON
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Handle success based on the action (Add, Update, Delete)
+                alert(`Item updated successfully!`); // Replace with specific messages
+                addItemForm.reset(); // Clear the form after successful actions
+                window.location = window.location
+
+            } else {
+                alert(data.message); // Display any error message from the server
+                addItemForm.reset(); // Clear the form after successful actions
+                window.location = window.location
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            alert('Error processing item!'); // Or display a generic error message
+        });
+});
